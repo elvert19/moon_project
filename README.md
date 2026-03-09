@@ -11,7 +11,7 @@ Forward Pass: The engine computes $Z = XW + b$ followed by a $\tanh$ activation,
 
 Activation: We use $\tanh$ in the hidden layer to introduce non-linearity and $\sigma(z) = \frac{1}{1+e^{-z}}$ in the output layer to map results into a $[0, 1]$ probability range.
 
-Optimization: The model uses the Adam Optimizer to adapt the learning rate, minimizing the Mean Squared Error (MSE) loss:$$Loss = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2$$
+Optimization: The model uses the Adam Optimizer to adapt the learning rate, minimizing the Mean Squared Error (MSE) loss:$Loss = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2$
 
  
 **Findings & Analysis**
