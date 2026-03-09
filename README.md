@@ -22,13 +22,13 @@ $$\text{Loss} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2$$
 
 ### 1. The Power of Non-Linearity
 
-A linear model would be completely incapable of separating the Two Moons dataset because the crescents are interlocking. By using a 16-neuron hidden layer with the `tanh` activation function, the model performs a non-linear mapping — transforming the 2D input space **R²** into a 16-dimensional hidden space **R¹⁶**, where the "fold" created by `tanh` allows for a clean hyperplane separation.
+A linear model would be completely incapable of separating the Two Moons dataset because the crescents are interlocking. By using a 16-neuron hidden layer with the `tanh` activation function, the model performs a non-linear mapping and transforms the 2D input space **R²** into a 16-dimensional hidden space **R¹⁶**, where the "fold" created by `tanh` allows for a clean hyperplane separation.
 
 ### 2. Convergence Behavior (Adam Optimizer)
 
 The model exhibits rapid convergence, typically reaching an MSE near `0.0000` within 200–500 epochs.
 
-- **Why it works:** The Adam Optimizer dynamically adjusts the learning rate `α` for each parameter by maintaining estimates of both the first and second moments of the gradients. This prevents the model from getting stuck in saddle points — areas where the gradient is flat but the loss is still high.
+- **Why it works:** The Adam Optimizer dynamically adjusts the learning rate `α` for each parameter by maintaining estimates of both the first and second moments of the gradients. This prevents the model from getting stuck in saddle points, areas where the gradient is flat but the loss is still high.
 - **Loss decay:** The loss curve follows an exponential decay, characteristic of high-performing backpropagation engines.
 
 ### 3. Classification Boundaries
@@ -40,7 +40,7 @@ The `plot_decision_boundary` function reveals that the engine learns a curved bo
 
 ### 4. Hardware/Software Synergies
 
-By moving compute-intensive matrix operations to Rust, execution times are significantly faster than pure Python implementations. The use of `ndarray` for tensor manipulation ensures efficient memory allocation — critical when scaling from 500 samples (Moons) to 60,000 samples (MNIST).
+By moving compute-intensive matrix operations to Rust, execution times are significantly faster than pure Python implementations. The use of `ndarray` for tensor manipulation ensures efficient memory allocation which is  critical when scaling from 500 samples (Moons) to 60,000 samples (MNIST).
 
 ---
 
